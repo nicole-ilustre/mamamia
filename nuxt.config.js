@@ -40,8 +40,14 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
+ modules: [
+    '@nuxtjs/axios',
   ],
+
+  axios: {
+    // extra config e.g
+    BaseURL: 'https://mamamia-1abd9.firebaseio.com/fireblog/users.json'
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
