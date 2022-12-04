@@ -8,15 +8,13 @@
       ></v-text-field>
       <v-btn elevation="2" @click="sendTextInput">Submit</v-btn>
       <v-btn elevation="2" @click="getTextInput">Get Text</v-btn>
-      <p>Input text: {{ textInput }}</p>
+      <p>Input text: {{ receivedText }}</p>
     </v-col>
   </v-row>
 </template>
 
 <script>
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { collection, addDoc, doc, onSnapshot } from "firebase/firestore";
 const axios = require("axios").default;
 
 const firebaseConfig = {
@@ -30,26 +28,24 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
 export default {
   data() {
     return {
       textInput: "",
+      receivedText: null,
     };
   },
   methods: {
     async sendTextInput() {
-      axios.post("https://mamamia-1abd9.firebaseio.com/fireblog/users.json", {
+      await axios.post(this.$axios.defaults.baseURL, {
         textInput: this.textInput,
       });
     },
     async getTextInput() {
-      axios
-        .get("https://mamamia-1abd9.firebaseio.com/fireblog/users.json")
-        .then((response) => {
-          console.log(response);
-        });
+      axios.get(this.$axios.defaults.baseURL).then((response) => {
+        this.receivedText = response.data;
+      });
     },
   },
 };

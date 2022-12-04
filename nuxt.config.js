@@ -45,8 +45,7 @@ export default {
   ],
 
   axios: {
-    // extra config e.g
-    BaseURL: 'https://mamamia-1abd9.firebaseio.com/fireblog/users.json'
+    baseURL: 'https://mamamia-1abd9.firebaseio.com/fireblog/messages.json'
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
