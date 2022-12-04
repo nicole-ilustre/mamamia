@@ -45,7 +45,7 @@ export default {
   ],
 
   axios: {
-    baseURL: 'https://mamamia-1abd9.firebaseio.com/fireblog/messages.json'
+    baseURL: process.env.REALTIME_DB_API_KEY
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

@@ -6,7 +6,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyAZ3dLsamyirhNmuJZWaeuDXCWw9l-Tj0g",
   authDomain: "mamamia-1abd9.firebaseapp.com",
   databaseURL:
-    "https://mamamia-1abd9-default-rtdb.europe-west1.firebasedatabase.app",
+   process.env.FIRESTORE_DB_API_KEY,
   projectId: "mamamia-1abd9",
   storageBucket: "mamamia-1abd9.appspot.com",
   messagingSenderId: "813276695958",
