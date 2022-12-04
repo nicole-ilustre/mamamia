@@ -44,7 +44,10 @@ export default {
     },
     async getTextInput() {
       axios.get(this.$axios.defaults.baseURL).then((response) => {
-        this.receivedText = response.data;
+        const messages = Object.keys(response.data).map(
+          (key) => response.data[key].textInput
+        );
+        this.receivedText = messages;
       });
     },
   },
